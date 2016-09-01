@@ -1,0 +1,48 @@
+/*
+ * testSkipList.cpp
+ *
+ *  Created on: 2016年8月31日
+ *      Author: shayne
+ */
+
+#include "skipList.h"
+using namespace std;
+
+int main(){
+	cout << "test SkipList" << endl;
+	SkipList list;
+
+	//输入插入的元素
+	int count = 0;
+	KeyType key;
+	ValueType value;
+	cout << "insert <key,value> " << endl;
+	while(count++ < 10){
+		cin >>key>>value;
+		list.Insert(key,value);
+	}
+
+	//输出元素
+	list.print();
+
+	//删除元素
+	bool res;
+	cout << "search <key,value> " << endl;
+	while(cin >> key >> value){
+		res = list.Search(key,value);
+		if(res)
+			cout << "key:  " << key << "value: " << value << endl;
+		else
+			cout << "search failure !!" << endl;
+		list.print();
+		cout << "delete <" << key << ","<<value << ">"<< endl;
+		res = list.Delete(key,value);
+		if(!res)
+			cout << "delete failure!!!" << endl;
+		list.print();
+		cout << "search <key,value> " << endl;s
+		
+	}
+	return 0;
+}
+
